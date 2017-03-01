@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title>News Hub</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body ng-app="NewsApp" ng-controller="NewsCtrl" ng-cloak>
+
+    <div class="top-pane">
+        <div class="source" ng-repeat="source in sources" back-img="assets/images/sm-logos/{{source.imgUrl}}" 
+            ng-click="selectSource(source)" ng-class="{'activeSource': source===activeSource}"
+            title="{{source.name}}">
+        </div>
+    </div>
+    <div class="topStories">
+        <div class="article" ng-repeat="article in topStories" back-color="{{activeSource.primary}} {{activeSource.secondary}}"
+            ng-click="goTo(article.url)">
+            <div class="article-img" back-img="{{article.urlToImage}}"></div>
+            <div class="words">
+                <span>{{article.title}}</span><br>
+                <span>{{article.description}}</span>
+                <br>
+                <span>{{article.publishedAt}}</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
