@@ -50,6 +50,28 @@ app.controller('NewsCtrl', function ($scope, $http) {
         }
     }
 
+    var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+    $scope.formatDate = function (date) {
+        var today = new Date();
+        var d = "";
+        var a = "AM"
+        if (today.getDay() == d.getDate()) { 
+                d = "Today"; 
+        } else { 
+            d = days[date.getDay()]; 
+        }
+        var h = date.getHours();
+        var m = date.getMinutes();
+
+        if (h >= 12) {
+            h = h - 12;
+            dd = "PM";
+        }
+
+        return d + " " + h + ":" + m + " " + a;
+    }
+
     $scope.goTo = function (url) {
         var win = window.open(url, '_blank');
         win.focus();
