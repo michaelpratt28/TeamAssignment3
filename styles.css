@@ -82,6 +82,7 @@ html, body {
 .article-img {
     height: 150px;
     width: 17%;
+	float:left;
     display: inline-block;
 }
 
@@ -93,7 +94,15 @@ html, body {
     vertical-align: top;
     display: inline-block;
     padding: 20px;
-    width: 78%;
+    max-width: 73%;
+}
+
+.social {
+	padding:2px;
+	width: 6%;
+	float:right;
+	display: inline-block;
+	text-align:center;
 }
 
 .vertical-align {

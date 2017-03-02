@@ -11,7 +11,15 @@
 </head>
 
 <body ng-app="NewsApp" ng-controller="NewsCtrl" ng-cloak>
-
+<!-- from https://developers.facebook.com/docs/plugins/share-button/#configurator -->
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
     <div class="top-pane">
         <div class="source" ng-repeat="source in sources" back-img="assets/images/sm-logos/{{source.imgUrl}}" 
             ng-click="selectSource(source)" ng-class="{'activeSource': source===activeSource}"
@@ -19,16 +27,25 @@
         </div>
     </div>
     <div class="topStories">
-        <div class="article" ng-repeat="article in topStories" back-color="{{activeSource.primary}} {{activeSource.secondary}}"
-            ng-click="goTo(article.url)">
-            <div class="article-img" back-img="{{article.urlToImage}}"></div>
-            <div class="words">
+        <div class="article" ng-repeat="article in topStories" back-color="{{activeSource.primary}} {{activeSource.secondary}}">
+            <div class="article-img" back-img="{{article.urlToImage}}" ng-click="goTo(article.url)"></div>
+            <div class="words" ng-click="goTo(article.url)">
                 <span>{{article.title}}</span><br>
                 <span>{{article.description}}</span>
                 <br>
                 <span>{{formatDate(article.publishedAt)}}</span>
             </div>
-        </div>
+            <div class="social">Share:
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{article.url}}" target="_blank"><img src="facebook.png" alt="Facebook" /></a>
+            <a class="twitter-share-button"
+  href="https://twitter.com/intent/tweet?text=Hello%20world"
+  data-size="large">
+<img src="twitter.png" alt="Twitter" /></a>
+			</div>
+       </div>
+       </div>
+
+
     </div>
 
 </body>
