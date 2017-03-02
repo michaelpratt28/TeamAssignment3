@@ -73,11 +73,11 @@ html, body {
     transition: all .12s;
 }
 
-.article:hover {
+/*.article:hover {
     -moz-transform: scale(1.01);
     -webkit-transform: scale(1.01);
     transform: scale(1.01);
-}
+}*/
 
 .article-img {
     height: 150px;
@@ -98,11 +98,11 @@ html, body {
 }
 
 .social {
-	padding:2px;
+	margin: 52px 10px;
 	width: 6%;
-	float:right;
 	display: inline-block;
-	text-align:center;
+	text-align: center;
+    float: right;
 }
 
 .vertical-align {
